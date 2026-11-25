@@ -10,6 +10,32 @@ Click **Start**, let people talk, click **Stop**. The app shows:
 
 Everything except the minutes runs **on your laptop's CPU**. After the first run the models are saved on disk, so it works offline.
 
+## Screenshots
+
+All screenshots show the included 58-second demo meeting (`samples/demo_meeting.wav`) with two enrolled speakers.
+
+| Home page | Speaker enrollment |
+|:---:|:---:|
+| ![Home page with settings, Start/Stop and file upload](screenshots/home.png) | ![Enroll speakers panel with two enrolled people](screenshots/enroll.png) |
+| **Transcript with real names** | **Minutes with action-items table** |
+| ![Transcript labelled with enrolled names and voice-matching scores](screenshots/transcript.png) | ![Summary, key decisions and action-items table](screenshots/minutes.png) |
+| **Meeting analytics** | **Ask the meeting** |
+| ![Talk-time bar chart and per-speaker table](screenshots/analytics.png) | ![Answered question and a not-discussed question](screenshots/ask.png) |
+
+## Quick start
+
+```powershell
+git clone https://github.com/Prakhar007-cyber/MajorProject_Ai_meeting_minutes_generator_Prakhar_Bhatnagar.git
+cd MajorProject_Ai_meeting_minutes_generator_Prakhar_Bhatnagar
+py -3.12 -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+copy .env.example .env      # then open .env and paste your two keys (see Setup below)
+streamlit run app.py        # opens http://localhost:8501
+```
+
+Upload `samples/demo_meeting.wav` and click **Process this file** to see the full output without recording anything.
+
 ## How it works
 
 ```
@@ -48,6 +74,17 @@ Mic ──► recorder.py ──► meeting.wav
 | `analytics.py` | Speaking time, share of talk time and number of turns per speaker |
 
 ## Setup (Windows, one time)
+
+**Prerequisites**
+
+| Need | Notes |
+|------|-------|
+| Windows 10/11 laptop with a microphone | Any modern CPU; no GPU needed. 8 GB RAM recommended |
+| Python 3.12 | https://www.python.org/downloads/ (tick **Add Python to PATH**) |
+| Git | https://git-scm.com/download/win, to clone the repository |
+| ~3 GB free disk space | Python packages (~1 GB) + Whisper and pyannote models (~550 MB, downloaded on first run) |
+| Internet for the first run | Downloads the models; afterwards only the minutes / Q&A step needs internet |
+| Free Hugging Face account and Groq account | For the two keys in steps 3 and 4 |
 
 **1. Python 3.12** (Python 3.13/3.14 may not have the needed ML packages yet.)
 
