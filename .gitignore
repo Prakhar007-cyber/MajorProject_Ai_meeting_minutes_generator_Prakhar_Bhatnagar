@@ -1,0 +1,13 @@
+venv/
+.env
+__pycache__/
+recordings/
+*.wav
+!samples/*.wav
+
+# Reports, slides and explanation documents (kept local only)
+*.pdf
+*.pptx
+*.docx
+EXPLANATION.md
+enrolled/

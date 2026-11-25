@@ -1,0 +1,25 @@
+# Install CPU-only PyTorch first (see README), then: pip install -r requirements.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.5.1
+torchaudio==2.5.1
+
+# Recording audio
+sounddevice
+soundfile
+numpy<2.0
+
+# Speech-to-text
+faster-whisper
+av<16   # newer PyAV breaks faster-whisper audio loading
+
+# Speaker diarization
+pyannote.audio==3.3.2
+huggingface_hub<1.0
+
+# LLM for minutes
+groq
+
+# UI and settings
+streamlit
+pyarrow<20   # used by Streamlit charts/tables; newer pyarrow needs NumPy 2
+python-dotenv
